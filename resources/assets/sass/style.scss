@@ -1,0 +1,19 @@
+@import 'partials/base';
+@import 'partials/copper';
+
+	body,html {
+  height: 100%;
+}
+body.home {
+	.header {
+	  height: 30%;
+	  background-image:url('../images/wood_background.jpg');
+	  background-size:cover;
+	  .logo {
+	  	font-family: $font__header;
+	  	font-size: 64px;
+	  	font-weight: 700;
+	  	color: $color__black;
+	  }
+	}
+}
