@@ -11,7 +11,7 @@ body,html {
     background-color:$color__yellow;
   .logo {
   	font-family: $font__header;
-  	font-size: 48px;
+  	font-size: 36px;
   	font-weight: 700;
   	color: $color__black;
   	line-height: 200px;
@@ -56,6 +56,182 @@ body,html {
 			height: auto;
 		}
 	}
+	.galleryImage {
+		margin: 1vw 0;
+	}
+}
+
+.green {
+	background-color: $color__green;
+	@include colorBase();
+	h1 {
+		font-size: 21px;
+		margin-bottom: 20px;
+		span {
+			font-family: $font__header;
+			font-size: 28px;
+		}
+	}
+	h3 {
+		font-size: 18px;
+		line-height: 24px;
+		margin-bottom: 15px;
+	}
+	p {
+		font-size: 16px;
+		line-height: 20px;
+		margin: 1em 0;
+	}
+	img {
+		display: block;
+		margin: 5vw auto 10px auto;
+	}
+	small {
+		font-size: 14px;
+		line-height: 16px;
+		display: block;
+		text-align: center;
+	}
+}
+
+.red {
+	background-color: $color__red;
+	@include colorBase();
+	.buyHeader {
+		background-color: $color__green;
+		border: 5px solid $color__black;
+		border-radius: 10px;
+		padding: 10px 0;
+		text-align: center;
+		margin-bottom: 3.5vw;
+		h2 {
+			color: $color__white;
+			font-size: 24px;
+			span {
+				font-family: $font__header;
+			}
+		}
+	}
+	.buyOption {
+		&:last-child {
+			margin-top: 10vw;
+		}
+		h3 {
+			font-size: 24px;
+			border-bottom: 2px solid $color__black;
+		}
+		p {
+			font-size: 16px;
+			margin: 1em 0;
+		}
+		#kickstarter {
+			text-align: center;
+			margin-bottom: 5vw;
+			div,img {
+				width: 90%;
+				height: auto;
+				cursor: pointer;
+			}
+		}
+		.share {
+				background-color: $color__white;
+				border: 5px solid $color__black;
+				border-radius: 10px;
+				text-align: center;
+				padding: 10px 0;
+				margin-bottom: 2vw;
+				float: left;
+				&:hover {
+					background-color: $color__yellow;
+				}
+				a {
+					color: $color__black;
+					font-size: 18px;
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		form {
+			color: $color__black;
+			font-family: $font__normal;
+			margin-top: 25px;
+			input, select, #card-element {
+				color: $color__black;
+				font-family: $font__normal;
+				border: 2px solid $color__black;
+				border-radius: 5px;
+				background-color: $color__white;
+			}
+			#card-element {
+				padding: 5px 0;
+			}
+			label {
+				font-size: 18px;
+				margin-bottom: 5px;
+			}
+			button[type='submit'] {
+				background-color: $color__green;
+				border: 2px solid $color__black;
+				font-size: 21px;
+				padding: 5px 0;
+				width: 100%;
+				cursor: pointer;
+				&:hover {
+					background-color: $color__white;
+				}
+			}
+		}
+		.amount {
+			label, input {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				text-align: center;
+			}
+			input[type="radio"] {
+				opacity: 0.011;
+				z-index: 100;
+			}
+			input[type="radio"]:checked + label {
+				background-color: $color__green;
+				color: $color__white;
+			}
+			label {
+				width: 50%;
+			     cursor:pointer;
+			     z-index:90;
+			     background-color: $color__white;
+			     height: 35px;
+			     line-height: 30px;
+			     border: 2px solid $color__black;
+			     border-radius: 5px;
+			}
+			label:hover {
+				background: $color__yellow;
+			}
+		}
+		.buyButton {
+			margin-top: 35px;
+			span {
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 36px;
+			}
+		}
+	}
+}
+
+#footer {
+	padding: 20px 0;
+	text-align: center;
+	a {
+		color: $color__black;
+		font-size: 18px;
+	}
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -86,6 +262,59 @@ body,html {
 			padding: 0;
 		}
 	}
+	.green {
+		background-color: $color__green;
+		color: $color__black;
+		font-family: $font__normal;
+		h1 {
+			font-size: 36px;
+			span {
+				font-family: $font__header;
+				font-size: 48px;
+			}
+		}
+		h3 {
+			font-size: 21px;
+			line-height: 27px;
+		}
+		p {
+			font-size: 18px;
+			line-height: 22px;
+		}
+		small { 
+			font-size: 15px;
+			line-height: 18px;
+		}
+	}
+
+	.red {
+		.buyHeader {
+			h2 {
+				font-size: 36px;
+			}
+		}
+		.buyOption {
+			&:last-child {
+				margin-top: 0;
+			}
+			h3 { 
+				text-align: center;
+				font-size: 32px; 
+			}
+			p {
+				font-size: 18px;
+			}
+			.share {
+				width: 45%;
+				&:nth-child(even) {
+					float: right;
+				}
+				&:last-child {
+					float: left;
+				}
+			}
+		}
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -109,6 +338,45 @@ body,html {
 		.card {
 			img {
 				border-radius: 15px;
+			}
+		}
+	}
+	.green {
+		background-color: $color__green;
+		color: $color__black;
+		font-family: $font__normal;
+		h1 {
+			font-size: 48px;
+			span {
+				font-family: $font__header;
+				font-size: 64px;
+			}
+		}
+		h3 {
+			font-size: 28px;
+			line-height: 36px;
+		}
+		p {
+			font-size: 21px;
+			line-height: 27px;
+		}
+		small {
+			font-size: 16px;
+			line-height: 21px;
+		}
+	}
+	.red {
+		.buyHeader {
+			h2 {
+				font-size: 42px;
+			}
+		}
+		.buyOption {
+			h3 {
+				font-size: 42px;
+			}
+			p {
+				font-size: 21px;
 			}
 		}
 	}

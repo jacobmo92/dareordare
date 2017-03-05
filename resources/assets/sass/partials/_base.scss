@@ -15,3 +15,17 @@ $font__normal: 'Sanchez', serif;
 $screen-lg-min: 1200px;
 $screen-md-min: 992px;
 $screen-sm-min: 768px;
+
+/* GLOBAL RULES */
+.spacer {
+	width: 100%;
+	height: auto;
+	float: left;
+	margin: 2.5vw 0;
+}
+
+/* MIXINS */
+@mixin colorBase(){
+	color: $color__black;
+	font-family: $font__normal;
+}
