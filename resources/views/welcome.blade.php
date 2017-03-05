@@ -51,9 +51,6 @@
 
         <div class="container-fluid green section">
             <div class="container">
-<<<<<<< HEAD
-                <div class=""
-=======
                 <div class="row">
                     <div class="col-xs-12">
                         <h1>What is <span>Dare or Dare</span>?</h1>
@@ -207,7 +204,6 @@
                         <a href="http://jacobmorris.me">jacobmorris.me</a>
                     </div>
                 </div>
->>>>>>> staging
             </div>
         </div>
 
