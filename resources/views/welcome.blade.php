@@ -10,10 +10,15 @@
         <link href="{{ asset('/css/lightbox.min.css') }}" rel="stylesheet" type="text/css">
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="{{ asset('js/stripe.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/imageSwap.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/lightbox.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/buy.js') }}" type="text/javascript"></script>
     </head>
-    <body class="home" id="home">
+    <body class="home" id="home" ng-app="myApp" ng-controller="myCtrl">
         
         <div class="container-fluid header">
             <div class="container">
@@ -82,6 +87,121 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 galleryImage">
                         <a href="{{ asset('/images/box4.jpg') }}" data-lightbox="image-1" ><img src="{{ asset('/images/box4.jpg') }}" class="img-responsive"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid red section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 buyHeader">
+                        <h2>Get <span>Dare or Dare</span></h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 buyOption">
+                        <h3>Kickstarter</h3>
+                        <p>Back Dare or Dare on Kickstarter now before it's available anywhere else.</p>
+                        <div id="kickstarter" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Dare or Dare will be on Kickstarter soon!"><img src="{{ asset('/images/kickstarter-logo-light.png') }}" alt="Kickstarter"></div>
+                        <div class="col-xs-12 col-sm-6 share">
+                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/dareordaregame/">Share Dare or Dare on Facebook</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 share">
+                            <a href="http://twitter.com/intent/tweet?status=Check out Dare or Dare!+https://www.facebook.com/dareordaregame/">Share Dare or Dare on Twitter</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 share">
+                            <a href="https://plus.google.com/share?url=https://www.facebook.com/dareordaregame/">Share Dare or Dare on Google+</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 share">
+                            <a href="http://www.reddit.com/submit?url=https://www.facebook.com/dareordaregame/">Share Dare or Dare on Reddit</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 share">
+                            <a href="http://www.tumblr.com/share?v=3&u=https://www.facebook.com/dareordaregame/">Share Dare or Dare on Tumblr</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 buyOption">
+                        <h3>Right Here</h3>
+                        <form>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <label for="name">What's your name? *</label>
+                                <input type="text" class="form-control" id="name" name="name" required="required">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <label for="email">What's your email? *</label>
+                                <input type="text" class="form-control" id="email" name="email" required="required">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <label for="phone">What's your phone number?</label>
+                                <input type="text" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-xs-12">
+                                <label for="address">Where are we sending it? *</label>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Address" required="required">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <input type="text" class="form-control" id="city" name="city" placeholder="City" required="required">
+                                <h1 ng-show="myVar">My Header</h1>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <input type="text" class="form-control" id="state" name="state" placeholder="State" required="required">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <div id="country">
+                                    <select name="country" class="form-control" required="required" ng-model="countrySelect" ng-change="updatePrice()">
+                                        <option ng-repeat="country in countries" value="<% country %>"><% country %></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label for="cc-name">Credit card *</label>
+                                <div id="card-element">
+                                      <!-- a Stripe Element will be inserted here. -->
+                                    </div>
+
+                                    <!-- Used to display form errors -->
+                                    <div id="card-errors"></div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label for="amount">How many do you want? *</label>
+                            </div>
+                            <div class="form-group col-xs-12 amount">
+                                <div class="col-xs-3">
+                                    <input type="radio" id="a1" checked="checked" name="amount" value="1" ng-model="amount" ng-value="1" ng-change="updatePrice()">
+                                    <label for="a1">1</label>
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="radio" id="a2" name="amount" value="2" ng-model="amount" ng-value="2" ng-change="updatePrice()">
+                                    <label for="a2">2</label>
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="radio" id="a3" name="amount" value="3" ng-model="amount" ng-value="3" ng-change="updatePrice()">
+                                    <label for="a3">3</label>
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="radio" id="a4" name="amount" value="4" ng-model="amount" ng-value="4" ng-change="updatePrice()">
+                                    <label for="a4">4</label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group col-xs-6 buyButton">
+                                <button type="submit" disabled="disabled">Available Soon</button>
+                            </div>
+                            <div class="form-group col-xs-6 buyButton">
+                                <span><% priceTotal %></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid white" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="http://jacobmorris.me">jacobmorris.me</a>
                     </div>
                 </div>
             </div>

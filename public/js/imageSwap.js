@@ -1,16 +1,17 @@
 $(document).ready(function() {
-			var images = new Array()
-			function preload() {
-				for (i = 0; i < preload.arguments.length; i++) {
-					images[i] = new Image()
-					images[i].src = preload.arguments[i]
-				}
-			}
-			preload(
-				"../images/2-13.png",
-				"../images/1-8.png",
-				"../images/3-31.png"
-			)
+    $('[data-toggle="popover"]').popover(); 
+	var images = new Array()
+	function preload() {
+		for (i = 0; i < preload.arguments.length; i++) {
+			images[i] = new Image()
+			images[i].src = preload.arguments[i]
+		}
+	}
+	preload(
+		"../images/2-13.png",
+		"../images/1-8.png",
+		"../images/3-31.png"
+	)
 
 	changeImageTo = function ($image) {
 		var swapSrc = [];

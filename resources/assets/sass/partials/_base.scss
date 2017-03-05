@@ -23,3 +23,9 @@ $screen-sm-min: 768px;
 	float: left;
 	margin: 2.5vw 0;
 }
+
+/* MIXINS */
+@mixin colorBase(){
+	color: $color__black;
+	font-family: $font__normal;
+}
