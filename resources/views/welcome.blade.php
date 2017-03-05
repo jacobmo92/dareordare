@@ -3,6 +3,8 @@
     <head>
         <title>Dare or Dare</title>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css">
         
@@ -11,15 +13,15 @@
     </head>
     <body class="home" id="home">
         
-        <div class="container-fluid">
-            <div class="container header">
+        <div class="container-fluid header">
+            <div class="container">
                 <div class="row">
                     <div class="col-xs-12 logo">Dare or Dare</div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid green section">
+        <div class="container-fluid white section">
             <div class="container">
                 <div class="row">
                     <div id="hoverNotify"><span>Hover Over The Cards!<span></div>
@@ -37,6 +39,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="container-fluid green section">
+            <div class="container">
+                <div class=""
             </div>
         </div>
 
