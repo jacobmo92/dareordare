@@ -19,14 +19,30 @@ body,html {
 }
 
 .section {
-	padding: 5vw 0;
+	padding: 7.5vw 0;
 }
 
 .green {
 	background-color: $color__green;
+	#hoverNotify {
+		position: absolute;
+		z-index: 10000;
+		background-color: $color__yellow;
+		border: 5px solid $color__black;
+		border-radius: 10px;
+		padding: 10px 20px;
+		transform: rotate(-25deg);
+		margin-top: 20px;
+		margin-left: 0;
+		span {
+			font-size: 16px;
+			font-family: $font__header;
+			color: $color__black;
+		}
+	}
 	.card {
 		text-align: center;
-		margin: 10px 0;
+		margin: 15px 0;
 		&:nth-child(1) {
 			margin-top: 0;
 		}
@@ -34,7 +50,7 @@ body,html {
 			margin-bottom: 0;
 		}
 		img {
-			border-radius: 15px;
+			border-radius: 10px;
 			width: 50%;
 			height: auto;
 		}
@@ -52,12 +68,21 @@ body,html {
 	}
 
 	.green {
+		#hoverNotify {
+			margin-top: 0;
+			span {
+				font-size: 18px;
+			}
+		}
 		.card {
 			margin: 0;
 			img {
-				border-radius: 10px;
+				border-radius: 7px;
 				width: 75%;
 			}
+		}
+		.cardRow {
+			padding: 0;
 		}
 	}
 }
@@ -73,6 +98,13 @@ body,html {
 	}
 
 	.green {
+		#hoverNotify {
+			margin-top: -20px;
+			margin-left: -30px;
+			span {
+				font-size: 32px;
+			}
+		}
 		.card {
 			img {
 				border-radius: 15px;
