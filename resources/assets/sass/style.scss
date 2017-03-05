@@ -8,6 +8,7 @@ body,html {
 
 .header {
     height: 200px;
+    background-color:$color__yellow;
   .logo {
   	font-family: $font__header;
   	font-size: 48px;
@@ -22,8 +23,8 @@ body,html {
 	padding: 7.5vw 0;
 }
 
-.green {
-	background-color: $color__green;
+.white {
+	background-color: $color__white;
 	#hoverNotify {
 		position: absolute;
 		z-index: 10000;
@@ -67,7 +68,7 @@ body,html {
 		}
 	}
 
-	.green {
+	.white {
 		#hoverNotify {
 			margin-top: 0;
 			span {
@@ -97,7 +98,7 @@ body,html {
 		}
 	}
 
-	.green {
+	.white {
 		#hoverNotify {
 			margin-top: -20px;
 			margin-left: -30px;
