@@ -9,7 +9,7 @@
         <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('/css/lightbox.min.css') }}" rel="stylesheet" type="text/css">
         
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="https://js.stripe.com/v3/"></script>
